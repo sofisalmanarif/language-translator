@@ -1,14 +1,28 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Navbar from './components/Navbar'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Main from './components/Main'
+import Learning from './components/Learning'
+import Quiz from './components/Quiz'
+import Result from './components/Result'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <div className='bg-red-200'>hay</div>
+    <BrowserRouter >
+    <Navbar/>
+    <Routes>
+      <Route path="/" element={<Main/>} />
+      <Route path="/learning" element={<Learning />} />
+      <Route path="/quiz" element={<Quiz/>} />
+      <Route path="/result" element={<Result/>} />
+
+    </Routes>
+    
+    </BrowserRouter>
     </>
   )
 }
