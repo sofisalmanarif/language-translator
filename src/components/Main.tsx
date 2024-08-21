@@ -1,6 +1,9 @@
-import React from 'react'
+
+import Button from './Button'
+import { useNavigate } from 'react-router-dom'
 
 const Main = () => {
+  const navigate = useNavigate()
   const languages:languageType[] =[
     {name:"english",code:"en"}
   ,
@@ -8,11 +11,11 @@ const Main = () => {
     {name:"japanese",code:"jp"}
   ]
   return (
-    <div className='flex items-center justify-center'>
+    <div className='flex flex-col items-center justify-center'>
     <h1 className='text-3xl font-extrabold'>Choose your Language</h1>
-      {
-        
-      }
+      <div className='my-10 gap-5 flex'>{
+        languages.map((language)=>(<Button key={language.name} label={language.name} handler={()=>navigate(`/learning?language=${language.code}`)} />))
+      }</div>
     </div>
   )
 }

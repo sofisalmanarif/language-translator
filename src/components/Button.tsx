@@ -1,7 +1,7 @@
 
 
 type Btn={
-    label:"string";
+    label:string;
     handler:() => void;
 }
 const Button = ({label,handler}:Btn) => {
