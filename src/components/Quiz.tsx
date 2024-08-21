@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Button from './Button'
 
 import { useNavigate } from 'react-router-dom'
@@ -10,7 +10,7 @@ const Quiz = () => {
 
      return (
        <div className="flex flex-col items-center justify-center">
-         <h1 className="text-3xl font-extrabold">Learning</h1>
+         <h1 className="text-3xl font-extrabold">Quiz</h1>
          <div className="flex my-10 font-bold text-xl " >
            <span>{count+1} - <span className=" text-blue-500 mr-4 mx-2 ">Meaning </span> </span>
            
