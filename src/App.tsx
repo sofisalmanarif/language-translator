@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import './App.css'
-import Navbar from './components/Navbar'
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Main from './components/Main'
+import './App.css'
 import Learning from './components/Learning'
+import Main from './components/Main'
+import Navbar from './components/Navbar'
 import Quiz from './components/Quiz'
 import Result from './components/Result'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
