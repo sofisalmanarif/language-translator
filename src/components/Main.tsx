@@ -8,7 +8,8 @@ const Main = () => {
     {name:"english",code:"en"}
   ,
     {name:"urdu",code:"ur"},
-    {name:"japanese",code:"jp"}
+    {name:"japanese",code:"jp"},
+    {name:"hindi",code:"hi"}
   ]
   return (
     <div className='flex flex-col items-center justify-center'>
