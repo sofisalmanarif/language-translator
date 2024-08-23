@@ -1,6 +1,6 @@
 
-import Button from './Button'
 import { useNavigate } from 'react-router-dom'
+import Button from './Button'
 
 const Main = () => {
   const navigate = useNavigate()
@@ -11,6 +11,7 @@ const Main = () => {
     {name:"japanese",code:"jp"},
     {name:"hindi",code:"hi"}
   ]
+  
   return (
     <div className='flex flex-col items-center justify-center'>
     <h1 className='text-3xl font-extrabold'>Choose your Language</h1>
