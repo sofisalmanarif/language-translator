@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from './Button'
 
 import { useNavigate } from 'react-router-dom'
 import { VscGlobe } from 'react-icons/vsc'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { saveResults } from '../redux/slices'
 
 const Quiz = () => {
   
@@ -11,6 +12,7 @@ const Quiz = () => {
     const [result,setResult] = useState<string[]>([])
     // const [ans, setAns] = useState<string>('')
     const [selectedOption, setSelectedOption] = useState('');
+    const dispatch = useDispatch()
 
     const {words,loading} = useSelector((state: {
       rootReducer :StateType
@@ -29,6 +31,12 @@ const Quiz = () => {
       setSelectedOption('')
       console.log(result)
     }
+
+    useEffect(() => {
+      console.log(result)
+      dispatch(saveResults(result))
+    }, [result])
+    
 
      return (
        <div className="flex flex-col items-center justify-center">
