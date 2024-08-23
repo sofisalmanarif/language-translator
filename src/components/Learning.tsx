@@ -14,7 +14,7 @@ const Learning = () => {
 
 const params =  useSearchParams()[0].get("language") as string
 
-const {words} = useSelector((state: {
+const {words,loading} = useSelector((state: {
   rootReducer :StateType
 })=>state.rootReducer)
 
@@ -30,6 +30,7 @@ const {words} = useSelector((state: {
    
  }, [])
  
+ if(loading)return <div>Loading....</div>
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-extrabold">Learning</h1>

@@ -15,7 +15,7 @@ const rootSlice = createSlice({
 
         },
         getWordsSuccess:(state,action:PayloadAction<WordType[]>)=>{
-            state.loading=true
+            state.loading=false
             state.words=action.payload
 
         },
