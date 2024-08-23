@@ -36,7 +36,7 @@ export const translateWords = async (lang: string): Promise<WordType[]> => {
             return {
                 word: item.translations[0].text,
                 meaning: words[idx].Text, // Use Text instead of text
-                options: ["Option1", "Option2", "Option3", "Option4"], // Add realistic options here
+                options: ["Option1hdghgsh",], 
             };
         });
 
