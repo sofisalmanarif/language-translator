@@ -17,3 +17,9 @@ type StateType ={
     words:WordType[]
 
 }
+
+type DataResponseType = {
+    translations:{
+        text: string;
+    }[]
+}
