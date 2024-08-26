@@ -1,5 +1,6 @@
 import { generate } from "random-words";
 import axios from 'axios'
+import _ from "lodash"
 
 // import {ResponseType} from '../vite-env'
 
@@ -10,7 +11,17 @@ export const translateWords = async (lang: string): Promise<WordType[]> => {
             Text: word,
         }));
 
-        // Make a request to the translation API
+        const generateOptions =(words:{
+            Text: string,
+        }[],idx:number):string[]=>{
+            const correctAns:string = words[idx].Text
+            const incorrectAns:string[] = _.sampleSize(words,3).map(item=>item.Text)
+            
+
+            return ["df"]
+
+
+        }
         const response = await axios.post(
             "https://microsoft-translator-text.p.rapidapi.com/translate",
             words,
@@ -31,12 +42,12 @@ export const translateWords = async (lang: string): Promise<WordType[]> => {
 
         const received: DataResponseType[] = response.data;
 
-        // Map the translated words to the expected structure
         const translatedWords: WordType[] = received.map((item, idx) => {
+            const options:string[]=generateOptions(words,idx)
             return {
                 word: item.translations[0].text,
                 meaning: words[idx].Text, // Use Text instead of text
-                options: ["Option1hdghgsh",], 
+                options: options, 
             };
         });
 
