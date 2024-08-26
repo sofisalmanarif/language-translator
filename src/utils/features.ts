@@ -15,10 +15,14 @@ export const translateWords = async (lang: string): Promise<WordType[]> => {
             Text: string,
         }[],idx:number):string[]=>{
             const correctAns:string = words[idx].Text
-            const incorrectAns:string[] = _.sampleSize(words,3).map(item=>item.Text)
-            
 
-            return ["df"]
+            const allAnsWithOutCorrectAns = words.filter(item=>item.Text !==correctAns)
+            const incorrectAns:string[] = _.sampleSize(allAnsWithOutCorrectAns,3).map(item=>item.Text)
+
+            const options = _.shuffle([...incorrectAns,correctAns])
+
+
+            return options
 
 
         }
