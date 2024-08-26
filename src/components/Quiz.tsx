@@ -42,7 +42,7 @@ const Quiz = () => {
        <div className="flex flex-col items-center justify-center">
          <h1 className="text-3xl font-extrabold">Quiz</h1>
          <div className="flex mt-10 mb-2 font-bold text-xl " >
-           <span>{count+1} - <span className=" text-blue-500 mr-4 mx-2 ">{words[count].word} </span> </span>
+           <span>{count+1} - <span className=" text-blue-500 mr-4 mx-2 ">{words[count]?.word} </span> </span>
 
          
            
@@ -50,7 +50,7 @@ const Quiz = () => {
          <div className="space-y-2 mb-10 ">
       <p className="text-lg font-medium">meaning :</p>
       {
-        words[count].options.map((option)=>(
+        words[count]?.options.map((option)=>(
           <label className="flex items-center space-x-3">
         <input
           type="radio"
@@ -66,7 +66,7 @@ const Quiz = () => {
       }
      
     </div>
-         <Button label={count>=7?"Result":"Next"} handler={count>=7?()=>navigate("/result"):()=>{submitHandler()}}/>
+         <Button label={count>=7?"Result":"Next"} handler={count>words.length?()=>navigate("/result"):()=>{submitHandler()}}/>
        </div>
      )
   
