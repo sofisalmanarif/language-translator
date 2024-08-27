@@ -61,3 +61,17 @@ export const translateWords = async (lang: string): Promise<WordType[]> => {
         throw new Error("Error in translating words");
     }
 };
+
+
+export const matchingCount =(arr1:string[],arr2:string[]):number=>{
+
+if(arr1.length !== arr2.length) throw new Error("Length of two arrray is not same")
+    let count =0;
+    for(let i=0 ;i<arr1.length ;i++){
+        if(arr1[i]===arr2[i]){
+            count++;
+        }
+            
+    }
+    return count
+}

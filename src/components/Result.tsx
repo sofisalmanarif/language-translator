@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Button from './Button'
 import { clearState } from '../redux/slices'
 import { useNavigate } from 'react-router-dom'
+import { matchingCount } from '../utils/features'
 
 const Result = () => {
   const {words,result} = useSelector((state: {
@@ -17,14 +18,16 @@ const Result = () => {
     navigate('/')
     
   }
+
+  const matches =matchingCount(result,words.map(item=>item.word))
   return (
     <div className="flex flex-col items-center justify-center">
          <h1 className="text-3xl font-extrabold">Result</h1>
-            <p>you got 3 out of {words.length}</p>
+            <p>you got {matches} out of {words.length}</p>
          <div className='flex gap-20'>
           <div className='flex flex-col'><h1>your Ans</h1>
           <div>{
-            result.map(yourAns=><p key={yourAns} className='my-2 capitalize font-bold'>{yourAns}</p>
+            result.map((yourAns,idx)=><p key={yourAns} className='my-2 flex  capitalize font-bold'>{idx+1}.{yourAns}</p>
 
             )}</div>
           </div>
@@ -36,6 +39,8 @@ const Result = () => {
             )}</div>
           </div>
          </div>
+         <p className={`font-bold text-xl ${(matches / words.length) * 100 > 50 ? 'text-green-500' : 'text-red-500'}`}
+         >{matches/words.length*100 >50 ?"Pass":"Fail"}</p>
          <Button label='Reset' handler={resetHandler}/>
          </div>
      )

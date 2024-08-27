@@ -31,11 +31,15 @@ const Quiz = () => {
       setSelectedOption('')
       console.log(result)
     }
+    const navigateHandler = ()=>{
+      submitHandler()
+      navigate("/result")
+    }
 
     useEffect(() => {
-      console.log(result)
-      dispatch(saveResults(result))
-    }, [result])
+      if (count + 1 > words.length) navigate("/result");
+      dispatch(saveResults(result));
+    }, [result]);
     
 
      return (
@@ -66,7 +70,7 @@ const Quiz = () => {
       }
      
     </div>
-         <Button label={count>=7?"Result":"Next"} handler={count>words.length?()=>navigate("/result"):()=>{submitHandler()}}/>
+         <Button label={count === words.length - 1 ?"Submit":"Next"} handler={()=>{submitHandler()}}/>
        </div>
      )
   
