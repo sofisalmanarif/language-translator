@@ -22,7 +22,7 @@ const Result = () => {
   const matches =matchingCount(result,words.map(item=>item.word))
   return (
     <div className="flex flex-col items-center justify-center">
-         <h1 className="text-3xl font-extrabold">Result</h1>
+         <h1 className="text-3xl font-extrabold">Result.</h1>
             <p className='mt-10 font-bold'>You got {matches} out of {words.length}</p>
          <div className='flex gap-20 mt-5'>
           <div className='flex flex-col  '><h1 className='text-red-500 font-xl'>Your Answers</h1>
