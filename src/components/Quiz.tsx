@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Button from './Button'
 
 import { useNavigate } from 'react-router-dom'
-import { VscGlobe } from 'react-icons/vsc'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { saveResults } from '../redux/slices'
 
@@ -14,7 +14,7 @@ const Quiz = () => {
     const [selectedOption, setSelectedOption] = useState('');
     const dispatch = useDispatch()
 
-    const {words,loading} = useSelector((state: {
+    const {words} = useSelector((state: {
       rootReducer :StateType
     })=>state.rootReducer)
 
@@ -30,10 +30,6 @@ const Quiz = () => {
       setCount(prev=>prev+1)
       setSelectedOption('')
       console.log(result)
-    }
-    const navigateHandler = ()=>{
-      submitHandler()
-      navigate("/result")
     }
 
     useEffect(() => {

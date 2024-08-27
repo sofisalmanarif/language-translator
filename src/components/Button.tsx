@@ -3,7 +3,7 @@
 type Btn={
     label:string;
     handler:() => void;
-    disabled?:boolean;
+    isDisabled?:boolean;
 }
 const Button = ({label,handler,isDisabled}:Btn) => {
   return (
