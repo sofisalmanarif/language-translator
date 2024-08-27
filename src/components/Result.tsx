@@ -34,7 +34,7 @@ const Result = () => {
           <div className='flex flex-col'> 
             <h1>Correct Ans</h1>
           <div>{
-            words.map(word=><p key={word.word} className='my-2 capitalize font-bold'>{word.word}</p>
+            words.map((word,idx)=><p key={word.word} className='my-2 capitalize font-bold'>{idx+1}{word.word}</p>
 
             )}</div>
           </div>
