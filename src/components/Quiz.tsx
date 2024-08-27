@@ -70,7 +70,7 @@ const Quiz = () => {
       }
      
     </div>
-         <Button label={count === words.length - 1 ?"Submit":"Next"} handler={()=>{submitHandler()}}/>
+         <Button isDisabled={!selectedOption?true:false} label={count === words.length - 1 ?"Submit":"Next"} handler={()=>{submitHandler()}}/>
        </div>
      )
   
